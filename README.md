@@ -264,8 +264,10 @@ CNAME обычно используют, когда несколько имён 
 MX указывает, какой сервер принимает электронную почту для домена.
 
 ~~~text
-pgk.test    MX    mail.pgk.test
+pgk.test    MX    10 mail.pgk.test
 ~~~
+
+Число `10` — приоритет почтового сервера. Если MX-записей несколько, меньший приоритет используется раньше.
 
 А сам почтовый сервер должен иметь IP:
 
@@ -487,7 +489,7 @@ pgk.test
 
 ~~~text
 pgk.test    NS       dns.pgk.test
-pgk.test    MX       mail.pgk.test
+pgk.test    MX       10 mail.pgk.test
 
 dns         A        192.168.10.2
 www         A        192.168.10.10
@@ -578,7 +580,7 @@ college.test
 3. A-запись сайта;
 4. A-запись почтового сервера;
 5. A-запись базы данных;
-6. MX-запись для почты.
+6. MX-запись для почты с приоритетом `10`.
 
 Используйте формат:
 
@@ -714,7 +716,7 @@ files.pgk.test
 
 ~~~text
 pgk.test        NS       dns.pgk.test
-pgk.test        MX       mail.pgk.test
+pgk.test        MX       10 mail.pgk.test
 
 dns             A        192.168.5.2
 www             A        192.168.5.10
@@ -811,7 +813,7 @@ alpha.test
 - файловый сервер — `files.alpha.test`;
 - имя `portal.alpha.test` должно вести на основной сайт;
 - имя `lk.alpha.test` тоже должно вести на основной сайт;
-- почта для зоны alpha.test должна приниматься сервером mail.alpha.test.
+- почта для зоны alpha.test должна приниматься сервером mail.alpha.test с приоритетом `10`.
 
 Составьте полную таблицу DNS-записей.
 
